@@ -15,8 +15,7 @@ export const authOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET,
-            allowDangerousEmailAccountLinking: true,
+            clientSecret: process.env.GOOGLE_SECRET
         }),
     ],
     adapter: MongoDBAdapter(clientPromise),
@@ -27,6 +26,16 @@ export const authOptions = {
             } else {
                 return false;
             }
+        },
+        async destroySession({ session }) {
+            // Clear the __Secure-next-auth.session-token cookie
+            return {
+                ...session,
+                accessToken: null,
+                accessTokenExpires: 0,
+                refreshToken: null,
+                refreshTokenExpires: 0,
+            };
         },
     },
 }
