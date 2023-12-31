@@ -24,7 +24,7 @@ export const authOptions = {
             if (await isAdminEmail(session?.user?.email)) {
                 return session;
             } else {
-                return null;
+                return false;
             }
         },
     },
