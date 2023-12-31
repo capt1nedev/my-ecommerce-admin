@@ -27,12 +27,6 @@ export const authOptions = {
                 return false;
             }
         },
-        async destroySession({ session }) {
-            // Implement the logic to destroy the session, e.g., by returning a promise
-            // that resolves to null
-            console.log("Destroying session:", session);
-            return null;
-        },
     },
 }
 
