@@ -24,18 +24,8 @@ export const authOptions = {
             if (await isAdminEmail(session?.user?.email)) {
                 return session;
             } else {
-                return false;
+                return null;
             }
-        },
-        async destroySession({ session }) {
-            // Clear the __Secure-next-auth.session-token cookie
-            return {
-                ...session,
-                accessToken: null,
-                accessTokenExpires: 0,
-                refreshToken: null,
-                refreshTokenExpires: 0,
-            };
         },
     },
 }
