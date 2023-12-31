@@ -7,7 +7,6 @@ export default function Layout({ children }) {
     const [showNav, setShowNav] = useState(false);
     const { data: session } = useSession();
     if (!session) {
-        document.cookie = "__Secure-next-auth.session-token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; SameSite=None";
         return (
             <div className="bg-bgGray w-screen h-screen flex items-center">
                 <div className="text-center w-full">
