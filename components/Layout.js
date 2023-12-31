@@ -17,6 +17,8 @@ export default function Layout({ children }) {
             </div>
         );
     }
+    // Clear relevant cookies when logging out
+    document.cookie = "__Secure-next-auth.session-token", "__Secure-next-auth.callback-url", "__Host-next-auth.csrf-token";
 
     return (
         <div className="bg-bgGray min-h-screen">
