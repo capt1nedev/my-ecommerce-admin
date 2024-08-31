@@ -5,7 +5,7 @@ import mime from 'mime-types';
 import { mongooseConnect } from '@/lib/mongoose';
 import { isAdminRequest } from "@/pages/api/auth/[...nextauth]";
 
-const bucketName = 'ustine-next-ecommerce';
+const bucketName = 'ustine-next-ecommerce'; //edit to your bucketname in AWS S3
 
 
 export default async function handle(req, res) {
@@ -21,10 +21,10 @@ export default async function handle(req, res) {
     });
     console.log('length', files.file.length);
     const client = new S3Client({
-        region: 'ap-southeast-2',
+        region: 'ap-southeast-2', //edit region based on AWS Region in your AWS Account
         credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+            accessKeyId: process.env.S3_ACCESS_KEY, //edit in the env file
+            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY, //edit in the env file
         }
     });
     const links = [];
